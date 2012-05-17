@@ -18,6 +18,9 @@
 % framed package for borders
 \usepackage{framed}
 
+% hyperref package for links
+\usepackage{hyperref}
+
 % define a custom timeline framed section based on leftbar
 \newenvironment{timelinebar}{%
 	\def\FrameCommand{\vrule width 1pt \hspace{10pt}}%
@@ -32,41 +35,62 @@
 	\newcommand{\yournumber}[1]{\def \@yournumber{#1}}
 	\newcommand{\youraddress}[1]{\def \@youraddress{#1}}
 	\newcommand{\youremail}[1]{\def \@youremail{#1}}
+	\newcommand{\yourwebsite}[1]{\def \@yourwebsite{#1}}
 	\newcommand{\recenthistory}[1]{\def \@recenthistory{#1}}
 
 	\yourname{}
-	\yournumber{} 
-	\youraddress{} 
-	\youremail{} 
+	\yournumber{}
+	\youraddress{}
+	\youremail{}
+	\yourwebsite{}
 	\recenthistory{}
 	
 	% redefine the author command
-	\renewcommand{\author}[1]{\@yourname{#1}}
+	\renewcommand{\author}[1]{\yourname{#1}}
 \makeatother
 
 % margins
 \usepackage[top=0.75in,bottom=0.75in,left=1in,right=1in]{geometry}
 
+% images - such as a headshot if desired
+\usepackage[pdftex]{graphicx}
+
+% colours
+\usepackage{xcolor}
+\definecolor{lightgrey}{rgb}{0.5,0.5,0.5}
+\definecolor{darkgrey}{rgb}{0.3,0.3,0.3}
+
 % fonts
 \renewcommand{\familydefault}{cmss}
 
-% images - such as a headshot if desired
-\usepackage[pdftex]{graphicx}
+% some custom font styling
+\makeatletter
+	% for document headers
+	\newcommand{\adddocumentheader}[1]{{\huge \textsc{#1}}}
+
+	% for section headers
+	\newenvironment{sectionheader}{\vspace{0.5cm} \color{darkgrey}  \LARGE}{\par}
+	\newcommand{\addheadertext}[1]{\begin{sectionheader}#1\end{sectionheader}}
+	
+	% for timeline headers
+	\newenvironment{timelineheader}{\fontfamily{ppl}\selectfont \color{lightgrey}  \large}{}
+	\newcommand{\addtimelineheader}[1]{\begin{timelineheader}#1\end{timelineheader}}
+\makeatother
 
 % title
 \makeatletter
 \def \@maketitle {%
 	\begin{minipage}{0.45\textwidth}
 		\begin{flushleft}
-			x
+			\ifdefempty{\@yourname}{\relax}{\adddocumentheader{\@yourname}\\}
+			\ifdefempty{\@youremail}{\relax}{l\small\@youremail\\}
+			\ifdefempty{\@yourwebsite}{\relax}{\small\url{\@yourwebsite}\\}
+			\ifdefempty{\@yournumber}{\relax}{\small\@yournumber}
 		\end{flushleft}
 	\end{minipage}
 	\begin{minipage}{0.5\textwidth}
 		\begin{flushright}
-			\ifundef{\@yourname}{\relax}{\hfill\LARGE\textsc{\@yourname}\\}
-			\ifundef{\@youraddress}{\relax}{\hfill\small\@youraddress\\}
-			\ifundef{\@youremail}{\relax}{\hfill\small\@youremail\\}
-			\ifundef{\@yournumber}{\relax}{\hfill\small\@yournumber\\}
+			\ifdefempty{\@youraddress}{\relax}{\hfill\small\@youraddress}
 		\end{flushright}
 	\end{minipage}
 	
@@ -82,16 +106,16 @@
 		\noindent\@recenthistory\\
 	
 		% add a closing rule
-		\noindent\rule{\textwidth}{0.2mm}\vspace{0.5cm}
+		\noindent\rule{\textwidth}{0.2mm}
 	}
 }
 \makeatother
 
-% some commands for the timeline
+% timeline
 \makeatletter
 
 	% start a timeline - fixes spacing before the timeline
-	\newcommand{\starttimeline}{\vspace{1cm}}
+	\newcommand{\starttimeline}{\vspace{0.5cm}}
 
 	% recent summary listing in the form of a timeline - takes 2 arguments
 	%   - First is the 'year' or date you want to apply
@@ -100,9 +124,10 @@
 		\begin{minipage}[t]{0.2\textwidth}
 			\vspace{0.2cm}
 			\begin{center}
-				\textbf{#1}\quad\leaders\vrule height 5pt depth -4pt \hfill \null
+				\addtimelineheader{#1}\quad\leaders\vrule height 5pt depth -4pt \hfill \null
 			\end{center}
 		\end{minipage}
+		\hspace{-2mm}
 		\begin{minipage}[t]{0.8\textwidth}
 			\begin{timelinebar}
 				\vspace{0.2cm}
@@ -113,6 +138,5 @@
 		\vspace{-10mm}
 	}
 \makeatother
-% employment timeline
 
 

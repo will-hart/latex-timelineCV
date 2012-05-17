@@ -32,4 +32,4 @@ You can also add a timeline as follows
 		}
 	\stoptimeline
 
-This is provided as public domain (with no warranty), so use, change, modify however you wish.  If you find or add something particularly cool, feel free to push some changes at http://github.com/mecharius/latex-cvtimeline
+This is provided as public domain (with no warranty), so use, change, modify however you wish.  If you find or add something particularly cool, feel free to push some changes at https://github.com/mecharius/latex-timelineCV

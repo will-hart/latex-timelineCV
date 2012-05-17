@@ -63,14 +63,21 @@
 % fonts
 \renewcommand{\familydefault}{cmss}
 
+% set some default lengths
+\setlength{\parindent}{18pt}
+
 % some custom font styling
 \makeatletter
 	% for document headers
 	\newcommand{\adddocumentheader}[1]{{\huge \textsc{#1}}}
 
 	% for section headers
-	\newenvironment{sectionheader}{\vspace{0.5cm} \color{darkgrey}  \LARGE}{\par}
+	\newenvironment{sectionheader}{\vspace{0.5cm} \color{darkgrey} \LARGE}{\par}
 	\newcommand{\addheadertext}[1]{\begin{sectionheader}#1\end{sectionheader}}
+	
+	% for sub headings
+	\newenvironment{subheader}{\fontfamily{ppl}\selectfont \color{darkgrey} \large}{\par}
+	\newcommand{\addsubheader}[1]{\begin{subheader}#1\end{subheader}}
 	
 	% for timeline headers
 	\newenvironment{timelineheader}{\fontfamily{ppl}\selectfont \color{lightgrey}  \large}{}
@@ -116,6 +123,10 @@
 
 	% start a timeline - fixes spacing before the timeline
 	\newcommand{\starttimeline}{\vspace{0.5cm}}
+	
+	% add a timeline bullet point
+	\newenvironment{timelinebullet}{\leftskip=12mm \parindent=-6mm $\bullet$ \hspace{2mm}}{\par\parindent=18pt}
+	\newcommand{\addtimelinebullet}[1]{\begin{timelinebullet}#1\end{timelinebullet}}
 
 	% recent summary listing in the form of a timeline - takes 2 arguments
 	%   - First is the 'year' or date you want to apply
@@ -131,7 +142,7 @@
 		\begin{minipage}[t]{0.8\textwidth}
 			\begin{timelinebar}
 				\vspace{0.2cm}
-				#2\\
+				#2
 				\vspace{1.2cm}
 			\end{timelinebar}
 		\end{minipage}

@@ -23,7 +23,7 @@
 
 % define a custom timeline framed section based on leftbar
 \newenvironment{timelinebar}{%
-	\def\FrameCommand{\color{lightgrey}\vrule width 1pt \hspace{10pt}\color{black}}%
+	\def\FrameCommand{\color{verylightgrey}\vrule width 1pt \hspace{10pt}\color{black}}%
 	\MakeFramed {\advance\hsize-\width \FrameRestore}}%
 {\endMakeFramed}
  
@@ -57,6 +57,7 @@
 
 % colours
 \usepackage{xcolor}
+\definecolor{verylightgrey}{rgb}{0.8,0.8,0.8}
 \definecolor{lightgrey}{rgb}{0.5,0.5,0.5}
 \definecolor{darkgrey}{rgb}{0.3,0.3,0.3}
 
@@ -135,7 +136,7 @@
 		\begin{minipage}[t]{0.2\textwidth}
 			\vspace{0.2cm}
 			\begin{center}
-				\addtimelineheader{#1}\quad\color{lightgrey}\leaders\vrule height 5pt depth -4pt \hfill\color{black} \null
+				\addtimelineheader{#1}\quad\color{verylightgrey}\leaders\vrule height 5pt depth -4pt \hfill\color{black} \null
 			\end{center}
 		\end{minipage}
 		\hspace{-2mm}

@@ -1,5 +1,6 @@
 \documentclass{harnon-cv}
 
+
 	% personal details
 	\author{My Name}  % OR - \yourname{My Name}
 	\yournumber{1800 123 456}
@@ -16,12 +17,23 @@
 		
 		\addheadertext{Timeline}
 		\starttimeline
+		
 			\timelineitem{2009}{
-				\textbf{Sample}\\
-				Line
+				\addsubheader{Office Manager, ACME Inc.}
+				\addtimelinebullet{A very short line}
+				\addtimelinebullet{A very long line to show that wraps.  Note that by using the \emph{addtimelinebullet} command, the indentation is also fixed.}
 			}
 
-			\timelineitem{2008}{Did some more stuff}
+			\timelineitem{2007}{
+				\addsubheader{CEO, San Antonio Spurs}
+				\addtimelinebullet{You can even use a list inside a \emph{timeline}!}
+				\begin{enumerate}
+					\item List item 1
+					\item List item 2
+				\end{enumerate}\par
+				\addtimelinebullet{Just make sure you throw in a \emph{par} when you add an item after a list otherwise following \emph{addtimelinebullets} will be indented strangely}
+				\addtimelinebullet{A little bit of care needs to be taken with the length of your timeline items, as as page breaks will \textbf{not} occur within a \emph{timelineitem}}
+			}
 
 			
 	\end{document}

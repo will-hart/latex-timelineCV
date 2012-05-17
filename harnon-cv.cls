@@ -10,16 +10,16 @@
 
 
 \ProvidesClass{harnon-cv}
-\LoadClass[12pt]{article}
+\LoadClass[a4paper, 11pt]{article}
+
+% turn off all page styling
+\pagestyle{empty}
 
 % add etoolbox for if/then/else enhancements
 \usepackage{etoolbox}
 
 % framed package for borders
 \usepackage{framed}
-
-% hyperref package for links
-\usepackage{hyperref}
 
 % define a custom timeline framed section based on leftbar
 \newenvironment{timelinebar}{%
@@ -73,7 +73,7 @@
 	\newcommand{\adddocumentheader}[1]{{\huge \textsc{#1}}}
 
 	% for section headers
-	\newenvironment{sectionheader}{\vspace{0.5cm} \color{darkgrey} \LARGE \noindent}{\par}
+	\newenvironment{sectionheader}{\vspace{0.5cm} \color{darkgrey} \LARGE \noindent}{\par\vspace{3mm}}
 	\newcommand{\addheadertext}[1]{\begin{sectionheader}#1\end{sectionheader}}
 	
 	% for sub headings
@@ -123,7 +123,7 @@
 \makeatletter
 
 	% start a timeline - fixes spacing before the timeline
-	\newcommand{\starttimeline}{\vspace{0.5cm}}
+	\newcommand{\starttimeline}{\vspace{0.2cm}}
 	
 	% end a timeline - fix up spacing after a timeline
 	\newcommand{\stoptimeline}{\vspace{0.5cm}}
@@ -154,4 +154,5 @@
 	}
 \makeatother
 
-
+% hyperref package for links etc
+\usepackage{hyperref}

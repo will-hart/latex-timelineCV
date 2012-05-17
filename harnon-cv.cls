@@ -73,7 +73,7 @@
 	\newcommand{\adddocumentheader}[1]{{\huge \textsc{#1}}}
 
 	% for section headers
-	\newenvironment{sectionheader}{\vspace{0.5cm} \color{darkgrey} \LARGE}{\par}
+	\newenvironment{sectionheader}{\vspace{0.5cm} \color{darkgrey} \LARGE \noindent}{\par}
 	\newcommand{\addheadertext}[1]{\begin{sectionheader}#1\end{sectionheader}}
 	
 	% for sub headings
@@ -124,6 +124,9 @@
 
 	% start a timeline - fixes spacing before the timeline
 	\newcommand{\starttimeline}{\vspace{0.5cm}}
+	
+	% end a timeline - fix up spacing after a timeline
+	\newcommand{\stoptimeline}{\vspace{0.5cm}}
 	
 	% add a timeline bullet point
 	\newenvironment{timelinebullet}{\leftskip=12mm \parindent=-6mm $\bullet$ \hspace{2mm}}{\par\parindent=18pt}

@@ -36,8 +36,6 @@ You can also add a timeline as follows
 		}
 	\stoptimeline
 
-Optionally, after each timeline item you can add a separator to generate a bit more white space.  You can do this by adding
-
-	\timelineseparator
+The \timelineseparator command just adds some white space between timeline items. It is optional.
 
 This is provided as public domain (with no warranty), so use, change, modify however you wish.  If you find or add something particularly cool, feel free to push some changes at https://github.com/mecharius/latex-timelineCV

@@ -4,8 +4,8 @@
 % A template for providing a neat CV
 % Find it at https://github.com/mecharius/latex-timelineCV
 %
-% Licensed under the CC-GNU GPL version 2.0 or later.
-% See http://creativecommons.org/licenses/GPL/2.0
+% Released as public domain, so use in any way you see fit
+% with no warranty.
 %
 
 

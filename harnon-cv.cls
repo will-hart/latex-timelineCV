@@ -12,6 +12,9 @@
 \ProvidesClass{harnon-cv}
 \LoadClass[a4paper, 11pt]{article}
 
+% margins
+\usepackage[top=0.75in,bottom=0.75in,left=1in,right=1in]{geometry}
+
 % turn off all page styling
 \pagestyle{empty}
 
@@ -27,6 +30,8 @@
 	\MakeFramed {\advance\hsize-\width \FrameRestore}}%
 {\endMakeFramed}
  
+% package for tables
+\usepackage{tabularx}
 
 % fields that user can set
 \makeatletter
@@ -49,9 +54,6 @@
 	\renewcommand{\author}[1]{\yourname{#1}}
 \makeatother
 
-% margins
-\usepackage[top=0.75in,bottom=0.75in,left=1in,right=1in]{geometry}
-
 % images - such as a headshot if desired
 \usepackage[pdftex]{graphicx}
 
@@ -62,7 +64,8 @@
 \definecolor{darkgrey}{rgb}{0.3,0.3,0.3}
 
 % fonts
-\renewcommand{\familydefault}{cmss}
+\usepackage[default]{cantarell}
+\usepackage[T1]{fontenc}
 
 % set some default lengths
 \setlength{\parindent}{18pt}
@@ -73,7 +76,7 @@
 	\newcommand{\adddocumentheader}[1]{{\huge \textsc{#1}}}
 
 	% for section headers
-	\newenvironment{sectionheader}{\vspace{0.5cm} \color{darkgrey} \LARGE \noindent}{\par\vspace{3mm}}
+	\newenvironment{sectionheader}{\vspace{1.2cm} \color{darkgrey} \LARGE \noindent}{\par\vspace{3mm}}
 	\newcommand{\addheadertext}[1]{\begin{sectionheader}#1\end{sectionheader}}
 	
 	% for sub headings
@@ -88,7 +91,7 @@
 % title
 \makeatletter
 \def \@maketitle {%
-	\begin{minipage}{0.45\textwidth}
+	\noindent\begin{minipage}{0.5\textwidth}
 		\begin{flushleft}
 			\ifdefempty{\@yourname}{\relax}{\adddocumentheader{\@yourname}\\}
 			\ifdefempty{\@youremail}{\relax}{l\small\@youremail\\}
@@ -116,6 +119,7 @@
 		% add a closing rule
 		\noindent\rule{\textwidth}{0.2mm}
 	}
+	\vspace{-1cm}
 }
 \makeatother
 
@@ -131,11 +135,12 @@
 	% add a timeline bullet point
 	\newenvironment{timelinebullet}{\leftskip=12mm \parindent=-6mm $\bullet$ \hspace{2mm}}{\par\parindent=18pt}
 	\newcommand{\addtimelinebullet}[1]{\begin{timelinebullet}#1\end{timelinebullet}}
-
+	
 	% recent summary listing in the form of a timeline - takes 2 arguments
 	%   - First is the 'year' or date you want to apply
 	%   - Second is the comments against that date
 	\newcommand{\timelineitem}[2]{
+		\noindent
 		\begin{minipage}[t]{0.2\textwidth}
 			\vspace{0.2cm}
 			\begin{center}

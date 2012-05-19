@@ -110,12 +110,10 @@
 	\noindent\rule{\textwidth}{0.2mm}
 	
 	% draw recent history if there is any
-	\ifundef{\@recenthistory}{\relax}{%
-		\begin{center}
-			\textsc{\textbf{About Me}}\\[0.2cm]
-		\end{center}	
+	\ifdefempty{\@recenthistory}{\relax}{%
+		\vspace{7mm}
 		\noindent\@recenthistory\\
-	
+
 		% add a closing rule
 		\noindent\rule{\textwidth}{0.2mm}
 	}

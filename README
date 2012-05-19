@@ -23,15 +23,21 @@ You can add headers to document sections as follows
 	\adddocumentheader{Top of Page Super heading}
 	\addheadertext{Section Heading}
 	\addsubheader{Sub section heading}
+	\addcallout{Some emphasised text, similar to sub section}
 
 You can also add a timeline as follows
 
 	\starttimeline
 		\timelineitem{2009}{Did some stuff}
+		\timelinespacer
 		\timelineitem{2010}{
 			\addtimelinebullet{Some text in a bullet pt}
 			\addtimelinebullet{Some more text in a bullet point}
 		}
 	\stoptimeline
+
+Optionally, after each timeline item you can add a separator to generate a bit more white space.  You can do this by adding
+
+	\timelineseparator
 
 This is provided as public domain (with no warranty), so use, change, modify however you wish.  If you find or add something particularly cool, feel free to push some changes at https://github.com/mecharius/latex-timelineCV

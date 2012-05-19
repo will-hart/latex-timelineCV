@@ -9,7 +9,7 @@
 	
 	
 	%personal statement
-	\recenthistory{A bit about yourself - a mini 3 sentence summary that an employer can read to `get to know you'. This can be useful so that they can read about you `at a glance'.  It is also a chance for you to sell yourself!}
+	\recenthistory{A bit about yourself - a mini 3 sentence summary that an employer can read to `get to know you'. This can be useful so that they can read about you `at a glance'.  It is also a chance for you to sell yourself!  If you leave out the line defining \emph{recent history}, then this section will not appear.}
 	
 	\begin{document}
 	
@@ -23,6 +23,7 @@
 				\addtimelinebullet{A very short line}
 				\addtimelinebullet{A very long line to show that wraps.  Note that by using the \emph{addtimelinebullet} command, the indentation is also fixed.}
 			}
+			\timelinespacer
 
 			\timelineitem{2007}{
 				\addsubheader{CEO, San Antonio Spurs}
@@ -41,7 +42,7 @@
 			\begin{itemize}
 				\item Computers and stuff
 				\item Basically you can build the rest of your document however you would like
-				\item Just use the header styles to maintain formatting
+				\item Just use the header styles to maintain \addcallout{formatting} (the word formatting was formatted using the \emph{addcallout} command).
 			\end{itemize}
 			
 	\end{document}

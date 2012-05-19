@@ -13,10 +13,11 @@
 \LoadClass[a4paper, 11pt]{article}
 
 % margins
-\usepackage[top=0.75in,bottom=0.75in,left=1in,right=1in]{geometry}
+\usepackage[top=0.75in,bottom=0.75in,left=0.75in,right=0.75in]{geometry}
 
 % turn off all page styling
-\pagestyle{empty}
+\pagestyle{plain}
+\usepackage{nopageno}
 
 % add etoolbox for if/then/else enhancements
 \usepackage{etoolbox}
@@ -59,7 +60,7 @@
 
 % colours
 \usepackage{xcolor}
-\definecolor{verylightgrey}{rgb}{0.8,0.8,0.8}
+\definecolor{verylightgrey}{rgb}{0.85,0.85,0.85}
 \definecolor{lightgrey}{rgb}{0.5,0.5,0.5}
 \definecolor{darkgrey}{rgb}{0.3,0.3,0.3}
 
@@ -80,12 +81,19 @@
 	\newcommand{\addheadertext}[1]{\begin{sectionheader}#1\end{sectionheader}}
 	
 	% for sub headings
-	\newenvironment{subheader}{\fontfamily{ppl}\selectfont \color{darkgrey} \large}{\par}
+	\newenvironment{subheader}{\color{darkgrey} \large}{\par}
 	\newcommand{\addsubheader}[1]{\begin{subheader}#1\end{subheader}}
-	
+
+	% for bold callouts
+	\newenvironment{callout}{\color{darkgrey} \large}{}
+	\newcommand{\addcallout}[1]{\begin{callout}#1\end{callout}}
+
 	% for timeline headers
-	\newenvironment{timelineheader}{\fontfamily{ppl}\selectfont \color{lightgrey}  \large}{}
+	\newenvironment{timelineheader}{\color{lightgrey}  \large}{}
 	\newcommand{\addtimelineheader}[1]{\begin{timelineheader}#1\end{timelineheader}}
+
+	% for list items with a particular format
+	\newcommand\listitem[1]{\item{\addcallout{#1}\enspace}}
 \makeatother
 
 % title
@@ -148,12 +156,22 @@
 		\hspace{-2mm}
 		\begin{minipage}[t]{0.8\textwidth}
 			\begin{timelinebar}
-				\vspace{0.2cm}
+				\vspace{2mm}
 				#2
-				\vspace{1.2cm}
+				\vspace{4mm}
 			\end{timelinebar}
 		\end{minipage}
-		\vspace{-10mm}
+		\vspace{-1cm}
+	}
+
+	% make a timeline space, between two timeline items to pad them out
+	\newcommand{\timelinespacer}{
+		\par\noindent\begin{minipage}{0.2\textwidth}\quad\end{minipage}
+		\hspace{-2mm}
+		\begin{minipage}{0.8\textwidth}\begin{timelinebar}
+			\vspace{1.5cm}\quad
+		\end{timelinebar}\end{minipage}\par
+		\vspace{-5mm}
 	}
 \makeatother
 

@@ -37,3 +37,14 @@ You can also add a timeline as follows
 The \timelineseparator command just adds some white space between timeline items. It is optional.
 
 This is provided as public domain (with no warranty), so use, change, modify however you wish.  If you find or add something particularly cool, feel free to  push some changes at https://github.com/mecharius/latex-timelineCV
+
+
+
+Revisions
+================================
+
+Version 1.1 (20-Oct-2012)
+ ! Fix misplaced character in front of email address in the class
+
+Version 1.0
+ - Initial Version

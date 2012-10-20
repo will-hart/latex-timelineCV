@@ -102,14 +102,14 @@
 	\noindent\begin{minipage}{0.5\textwidth}
 		\begin{flushleft}
 			\ifdefempty{\@yourname}{\relax}{\adddocumentheader{\@yourname}\\}
-			\ifdefempty{\@youremail}{\relax}{l\small\@youremail\\}
 			\ifdefempty{\@yourwebsite}{\relax}{\small\url{\@yourwebsite}\\}
 			\ifdefempty{\@yournumber}{\relax}{\small\@yournumber}
 		\end{flushleft}
 	\end{minipage}
 	\begin{minipage}{0.5\textwidth}
 		\begin{flushright}
-			\ifdefempty{\@youraddress}{\relax}{\hfill\small\@youraddress}
+			\ifdefempty{\@youraddress}{\relax}{\hfill\small\@youraddress\\}
+			\ifdefempty{\@youremail}{\relax}{\small\@youremail}
 		\end{flushright}
 	\end{minipage}
 	
